@@ -1,19 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import avatar from '../assets/icons/avatar.png'
 
 const Navbar = () => {
+  const currentUser = { displayName: "shady" }
   return <>
-    <nav className="w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 shadow-lg navbar navbar-expand-lg fixed-top ">
+    <nav className="w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-white  shadow-lg navbar navbar-expand-lg fixed-top ">
       <div className="container-fluid w-full flex items-center justify-between px-6">
-        <a className="text-xl text-white pr-2 font-semibold" href="#">
-          Movie App
-        </a>
+        <Link className="text-2xl pr-2 font-semibold" to="/">
+          Shady's Movie App
+        </Link>
         {/* Collapsible wrapper */}
         {/* Right elements */}
         <div className="flex items-center relative">
           {/* Icon */}
-
+          {currentUser && (<h5 className="mr-2 capitalize">{currentUser?.displayName}</h5>)}
           <div className="dropdown relative">
-            <a
+            <span
               className="dropdown-toggle flex items-center hidden-arrow"
               href="#"
               id="dropdownMenuButton2"
@@ -22,40 +25,40 @@ const Navbar = () => {
               aria-expanded="false"
             >
               <img
-                src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                src={currentUser?.photoURL || avatar}
                 className="rounded-full"
                 style={{ height: 25, width: 25 }}
-                alt=""
+                alt="users"
                 loading="lazy"
               />
-            </a>
+            </span>
+
             <ul
-              className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
+              className="dropdown-menu min-w-max absolute  bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
               aria-labelledby="dropdownMenuButton2"
             >
               <li>
-                <a
+                <Link
                   className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                  href="#"
-                >
-                  Action
-                </a>
+                  to="/register"                >
+                  Register
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                  href="#"
+                  to="/login"
                 >
-                  Another action
-                </a>
+                  Login
+                </Link>
               </li>
               <li>
-                <a
+                <span
                   className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                  href="#"
+                  role="button"
                 >
-                  Something else here
-                </a>
+                  Logout
+                </span>
               </li>
             </ul>
           </div>
