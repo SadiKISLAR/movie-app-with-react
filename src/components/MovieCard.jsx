@@ -27,7 +27,7 @@ const MovieCard = ({ poster_path, title, overview, vote_average, id }) => {
             />
             <div className="flex align-baseline justify-between p-1 text-white">
                 <h5>{title}</h5>
-                {currentUser && <span className={`tag ${getVoteClass(vote_average)}`}>{vote_average}</span>}
+                {currentUser && <span className={`tag ${getVoteClass(vote_average)}`}>{vote_average.toFixed(1)}</span>}
 
 
             </div>

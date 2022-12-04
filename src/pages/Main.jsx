@@ -20,9 +20,25 @@ const Main = () => {
       .catch(err => console.log(err));
   };
 
-  return <div className="flex justify-center flex-wrap">
-    {movies.map(movie => <MovieCard key={movie.id} {...movie} />)}
-  </div>;
+  return (
+    <>
+      <form className="flex justify-center p-2" >
+        <input
+          type="search"
+          className="w-80 h-8 rounded-md outline-none border p-1 m-2"
+          placeholder="Search a movie..."
+        />
+        <button className="text-white" type="submit">
+          Search
+        </button>
+      </form>
+      <div className="flex justify-center flex-wrap">
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} {...movie} />
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default Main;
