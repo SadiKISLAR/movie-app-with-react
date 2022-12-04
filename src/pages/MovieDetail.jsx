@@ -17,7 +17,7 @@ const MovieDetail = () => {
       .get(movieDetailBaseUrl)
       .then(res => setMovieDetails(res.data))
       .catch((err) => console.log(err))
-  }, [])
+  }, [movieDetailBaseUrl])
 
 
   return (
