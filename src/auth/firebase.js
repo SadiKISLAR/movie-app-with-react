@@ -36,7 +36,7 @@ export const createUser = async (email, password, navigate, displayName) => {
     await updateProfile(auth.currentUser, {
       displayName: displayName,
     });
-    navigate("/")
+    navigate("/");
     console.log(userCredential)
   } catch (error) {
     console.log(error.message);
@@ -63,7 +63,7 @@ export const userObserver = (setCurrentUser) => {
       console.log("user signed out");
     }
   });
-}
+};
 
 export const logOut = () => {
   signOut(auth)
@@ -73,13 +73,14 @@ export const signUpWithGoogle = (navigate) => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
-      console.log(result)
-      navigate("/")
+      console.log(result);
+      navigate("/");
 
       // ...
-    }).catch((error) => {
+    })
+    .catch((error) => {
       // Handle Errors here.
       console.log(error);
     });
-}
+};
 
