@@ -33,6 +33,7 @@ const Navbar = () => {
                 style={{ height: 25, width: 25 }}
                 alt="users"
                 loading="lazy"
+                referrerPolicy="no-referrer"
               />
             </span>
 
