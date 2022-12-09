@@ -9,6 +9,7 @@ import {
   signOut,
   updateProfile
 } from "firebase/auth";
+import { toastErrorNotify, toastSuccessNotify, toastWarnNotify } from "../helpers/ToastNotify";
 
 //* Your web app's Firebase configuration
 const firebaseConfig = {
@@ -37,16 +38,18 @@ export const createUser = async (email, password, navigate, displayName) => {
       displayName: displayName,
     });
     navigate("/");
+    toastSuccessNotify("Registered successfully!");
     console.log(userCredential)
   } catch (error) {
-    console.log(error.message);
+    toastErrorNotify(error.message);
   }
 };
 
 export const signIn = async (email, password, navigate) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    navigate("/")
+    navigate("/");
+    toastSuccessNotify("Logged in succesfully!");
   } catch (error) {
     console.log(error.message)
   }
@@ -66,7 +69,8 @@ export const userObserver = (setCurrentUser) => {
 };
 
 export const logOut = () => {
-  signOut(auth)
+  signOut(auth);
+  toastSuccessNotify("Logged out successfully!");
 };
 
 export const signUpWithGoogle = (navigate) => {
@@ -75,8 +79,8 @@ export const signUpWithGoogle = (navigate) => {
     .then((result) => {
       console.log(result);
       navigate("/");
+      toastSuccessNotify("Logged in successfully!");
 
-      // ...
     })
     .catch((error) => {
       // Handle Errors here.
@@ -84,3 +88,17 @@ export const signUpWithGoogle = (navigate) => {
     });
 };
 
+export const forgotPassword = (email) => {
+  //? Email yoluyla şifre sıfırlama için kullanılan firebase metodu
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      // Password reset email sent!
+      toastWarnNotify("Please check your mail box!");
+      // alert("Please check your mail box!");
+    })
+    .catch((err) => {
+      toastErrorNotify(err.message);
+      // alert(err.message);
+      // ..
+    });
+};
