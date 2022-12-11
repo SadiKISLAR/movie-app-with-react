@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContextProvider';
+import { toastWarnNotify } from "../helpers/ToastNotify";
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 const defaultImage =
@@ -23,8 +24,9 @@ const MovieCard = ({ poster_path, title, overview, vote_average, id }) => {
         <div
             className="movie" onClick={() => {
                 navigate("details/" + id)
-                !currentUser && alert("please login to see datails!!")
+                !currentUser && toastWarnNotify("please log in to see details");
             }}>
+
             <img
                 loading="lazy"
                 src={poster_path ? IMG_API + poster_path : defaultImage}
@@ -40,6 +42,7 @@ const MovieCard = ({ poster_path, title, overview, vote_average, id }) => {
                 <h2>Overview</h2>
                 <p>{overview}</p>
             </div>
+
         </div>
     )
 }
