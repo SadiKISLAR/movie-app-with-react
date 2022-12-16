@@ -49,7 +49,7 @@ const Main = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           value={searchTerm}
         />
-        <button className="text-blue-300" type="submit">
+        <button className=" bg-white w-40 h-8 rounded-md outline-none border p-1 m-6" type="submit">
           Search
         </button>
       </form>
