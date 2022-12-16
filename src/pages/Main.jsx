@@ -41,10 +41,10 @@ const Main = () => {
 
   return (
     <>
-      <form className="flex justify-center p-2" onSubmit={handleSubmit} >
+      <form className="flex justify-center p-2 mt-4" onSubmit={handleSubmit} >
         <input
           type="search"
-          className="w-80 h-8 rounded-md outline-none border p-1 m-8"
+          className="w-80 h-8 rounded-md outline-none border p-1 m-6"
           placeholder="Search a movie..."
           onChange={(e) => setSearchTerm(e.target.value)}
           value={searchTerm}
