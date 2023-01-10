@@ -2,14 +2,14 @@
 
 ## To see [please click here](https://movie-app-with-react-naqifbnxz-sadikislar.vercel.app/)
 
-Used Tech and Libraries
-ReactJS
-Firebase Authentication
-Styled Components
-Flowbite React
-Tailwind CSS
-React Toastify
-The Movie Database Api
+#Used Tech and Libraries
+#ReactJS
+#Firebase Authentication
+#Styled Components
+#Flowbite React
+#Tailwind CSS
+#React Toastify
+#The Movie Database Api
 
 
 
