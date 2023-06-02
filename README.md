@@ -1,6 +1,6 @@
 ## My Movie App Project is here.
 
-## To see [please click here](https://movie-app-with-react-naqifbnxz-sadikislar.vercel.app/)
+## To see [please click here](https://movie-app-with-react.vercel.app/)
 
 ## Used Tech and Libraries
 - ReactJS
